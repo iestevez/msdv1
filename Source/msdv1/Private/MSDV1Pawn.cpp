@@ -55,10 +55,12 @@ void AMSDV1Pawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 void AMSDV1Pawn::OnMoveForward(float value) {
 
 	if (value != 0.0f) {
-		AMSDV1PlayerController* PCon = (class AMSDV1PlayerController*) GetController();
+		//AMSDV1PlayerController* PCon = (class AMSDV1PlayerController*) GetController();
 		//const FRotator rot = GetControlRotation();
 		//const FVector dir = FRotationMatrix(rot).GetScaledAxis(EAxis::X);
+		
 		const FVector dir = MeshComponent->GetForwardVector();
+		/*
 		const FVector position = GetActorLocation();
 		FVector newposition = position + m_speed*value * FVector(dir[0],dir[1],0.0f);
 		bool outOfLimits = false;
@@ -92,7 +94,8 @@ void AMSDV1Pawn::OnMoveForward(float value) {
 		}
 		
 		this->SetActorLocation(newposition,true);
-		//AddMovementInput(dir, value);
+		*/
+		AddMovementInput(dir, value);
 	}
 }
 
